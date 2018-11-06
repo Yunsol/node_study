@@ -5,11 +5,26 @@
 - 소켓 클라이언트에서 소켓 서버로 '안녕!'같은 글자를 보내면 소켓 서버에서 그 글자를 그대로 다시 소켓 클라이언트로 보낸다
 - 소켓 클라이언트와 소켓 서버에서는 보내고 받은 데이터를 화면에 출력
 */
-const http = require('http');
+//net Module 호출
+var net = require('net');
+var server = net.createServer(function (client) {
+//클라이언트가 접속 후 접속메세지 출력
+       console.log('클라이언트가 접속했습니다');
 
-http.createServer((req, res) => {
-    res.write('<h1>Hello Node!</h1>');
-    res.end('<p>Hello Server!</p>');
-}).listen(8080, () => {
-    console.log('8080번 포트에서 서버 대기 중입니다!!');
+//서버가 클라이언트에서 스트링 데이터로 받은 메세지 출력
+    client.on('data', function (data) {
+        console.log('클라이언트가 보낸 메세지 : ' + data.toString());
+        client.write(data.toString());
+    });
+// 클라이언트 접속 종료 후 출력 메세지
+    client.on('end', function () {
+        console.log('클라이언트 접속이 종료되었습니다.');
+
+    });
+});
+//8107포트로 서버 생성 후 대기
+server.listen(8107, function () {
+
+    console.log('서버가 시작되었습니다.');
+
 });
