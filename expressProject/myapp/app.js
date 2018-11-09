@@ -20,9 +20,10 @@ var app = express();
 // view engine setup
 /**
  * express 세팅
+ * 제이드 모듈을 익스프레스와 연동
  */
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views')); // views 폴더에 있는 제이드파일을 렌더링 할 수 있는 준비 완료
+app.set('view engine', 'jade'); // 뷰엔진을 제이드로 설정
 
 /**
  * 미들웨어

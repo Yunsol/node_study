@@ -17,8 +17,14 @@ var router = express.Router();
   - del : DELETE 요청에 대해 처리
  */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  // {title: 'Express'}객체를 설정한 경우 /views/index.jade에서 이 객체를 이용해 페이지 정보를 구성
+  res.render('index', { title: 'Express' }); 
 });
+/*
+render(view, locals)
+view : 렌더링할 템플릿 파일명
+locals: 템플릿 파일에 주입할 객체
+*/
 
 // localhot:3000/abc 에 접속을 할 때, example.ejs의 화면을 보여주고 싶다면
 /*
