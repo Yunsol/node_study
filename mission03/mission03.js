@@ -37,14 +37,22 @@ router.route('/process/memo').post(function (req,resp) {
     resp.redirect('/public/response.html');
 });
 
+
+router.get('/memo', (req, res) => {
+    console.log('GET방식으로 memo 호출')
+    res.redirect('/public/memo.html');
+});
+
 router.route('/process/rememo').post(function (req,resp) {
+
+    res.render('index', { title: 'Express' });
 
     console.log('/process/rememo 라우팅 함수에서 받음');
     resp.redirect('/public/memo.html');
 
 });
 
-app.use('/',router);
+app.use('/', router);
 
 app.all('*',function (req,resp) {
     resp.status(404).send('<h1>ERROR-페이지를 찾을 수 없습니다.</h1>');
