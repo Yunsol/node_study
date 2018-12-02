@@ -11,7 +11,7 @@
   </head>
   <body>
     <div align="center">
-      <form action="/process/memo" method="post">
+      <form action="/process/memo" enctype="multipart/form-data" method="post">
         <table width="780" border="2" cellpadding="5">
           <tr aling="center">
             <td colspan="2" align="center">
@@ -31,9 +31,9 @@
             <td width="80%"><textarea name="contents" cols="50"></textarea></td>
           </tr>
           <tr>
-            <td width="25%" align="center"><b> 파일</b></td>
+            <td width="25%" align="center"><b> 사진</b></td>
             <td width="80%">
-              <input type="file" value="파일 선택" name="file" />
+              <input type="file" value="파일 선택" name="photo" />
             </td>
           </tr>
           <tr>
